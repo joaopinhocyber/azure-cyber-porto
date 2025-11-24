@@ -18,7 +18,7 @@ on:
         # The data type of the input
         type: string
       ambiente:
-        environment
+      type: environment
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
@@ -32,6 +32,7 @@ jobs:
     - name: Criar uma pasta
       run: |
         echo "Hello ${{ inputs.name }}"
+        echo "Hello ${{ secrets.PASS }}"
         mkdir ${{ inputs.name }}
         ls -l
         pwd
